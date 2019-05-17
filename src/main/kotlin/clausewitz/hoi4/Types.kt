@@ -51,3 +51,36 @@ data class Status(
     val movement: Double = 0.0,
     val defense: Double = 0.0
 )
+
+data class Equipments(
+    val equipments: Map<String, Equipment>
+)
+
+data class Equipment(
+    val year: Long? = null,
+    val archetype: String? = null,
+    val priority: Double? = null,
+    val visual_level: Double? = null,
+
+    val is_archetype: Boolean? = null,
+    val picture: String? = null,
+    val type: List<String>? = null,
+    val group_by: String? = null,
+    val interface_category: String? = null,
+    val reliability: Double? = null,
+
+    val defense: Double? = null,
+    val breakthrough: Double? = null,
+    val hardness: Double? = null,
+    val armor_value: Double? = null,
+
+    val soft_attack: Double? = null,
+    val hard_attack: Double? = null,
+    val ap_attack: Double? = null,
+    val air_attack: Double? = null,
+
+    val lend_lease_cost: Double? = null,
+
+    val build_cost_ic: Double? = null,
+    val resources: Map<String, Long>? = null
+)
