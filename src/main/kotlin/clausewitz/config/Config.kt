@@ -1,6 +1,10 @@
 package clausewitz.config
 
-val dir = System.getProperty("user.dir") + "/data/hoi4"
+val rootDir: String = System.getProperty("user.dir") + "/data/hoi4"
+val commonDir = "$rootDir/common"
+val unitsDir = "$commonDir/units"
+val equipmentDir = "$unitsDir/equipment"
+
 val unitsFileList = listOf(
     "anti_tank.txt",
     "anti_tank_brigade.txt",

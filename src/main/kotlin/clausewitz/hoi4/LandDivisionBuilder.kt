@@ -1,7 +1,8 @@
 package clausewitz.hoi4
 
-import clausewitz.config.dir
+import clausewitz.config.equipmentDir
 import clausewitz.config.equipmentFileList
+import clausewitz.config.unitsDir
 import clausewitz.config.unitsFileList
 import clausewitz.parser.parseClausewitzFile
 
@@ -9,7 +10,7 @@ import clausewitz.parser.parseClausewitzFile
 fun getLandUnits(): MutableMap<String, SubUnit> {
     val landUnits: MutableMap<String, SubUnit> = mutableMapOf()
     for (filename in unitsFileList) {
-        val parse = parseClausewitzFile("$dir/common/units/$filename") as SubUnits
+        val parse = parseClausewitzFile("$unitsDir/$filename") as SubUnits
         landUnits.putAll(parse.sub_units)
     }
 
@@ -19,7 +20,7 @@ fun getLandUnits(): MutableMap<String, SubUnit> {
 fun getEquipments(): MutableMap<String, Equipment> {
     val equipments: MutableMap<String, Equipment> = mutableMapOf()
     for (filename in equipmentFileList) {
-        val parse = parseClausewitzFile("$dir/common/units/equipment/$filename") as Equipments
+        val parse = parseClausewitzFile("$equipmentDir/$filename") as Equipments
         var base = Equipment()
         for (equipment in parse.equipments) {
             if (equipment.key.last().isDigit()) {
