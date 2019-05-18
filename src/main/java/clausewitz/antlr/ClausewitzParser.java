@@ -7,7 +7,6 @@ import org.antlr.v4.runtime.atn.ATNDeserializer;
 import org.antlr.v4.runtime.atn.ParserATNSimulator;
 import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -514,16 +513,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterConfig(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitConfig(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor)
                 return ((ClausewitzVisitor<? extends T>) visitor).visitConfig(this);
@@ -554,16 +543,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterAssignment(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitAssignment(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor)
                 return ((ClausewitzVisitor<? extends T>) visitor).visitAssignment(this);
@@ -587,16 +566,6 @@ public class ClausewitzParser extends Parser {
         @Override
         public int getRuleIndex() {
             return RULE_field;
-        }
-
-        @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterField(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitField(this);
         }
 
         @Override
@@ -650,16 +619,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterValue(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitValue(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor)
                 return ((ClausewitzVisitor<? extends T>) visitor).visitValue(this);
@@ -690,16 +649,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterSymbol(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitSymbol(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor)
                 return ((ClausewitzVisitor<? extends T>) visitor).visitSymbol(this);
@@ -719,16 +668,6 @@ public class ClausewitzParser extends Parser {
         @Override
         public int getRuleIndex() {
             return RULE_string;
-        }
-
-        @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterString(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitString(this);
         }
 
         @Override
@@ -754,16 +693,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterInteger(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitInteger(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor)
                 return ((ClausewitzVisitor<? extends T>) visitor).visitInteger(this);
@@ -783,16 +712,6 @@ public class ClausewitzParser extends Parser {
         @Override
         public int getRuleIndex() {
             return RULE_real;
-        }
-
-        @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterReal(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitReal(this);
         }
 
         @Override
@@ -817,16 +736,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterDate(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitDate(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor) return ((ClausewitzVisitor<? extends T>) visitor).visitDate(this);
             else return visitor.visitChildren(this);
@@ -845,16 +754,6 @@ public class ClausewitzParser extends Parser {
         @Override
         public int getRuleIndex() {
             return RULE_percent;
-        }
-
-        @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterPercent(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitPercent(this);
         }
 
         @Override
@@ -892,16 +791,6 @@ public class ClausewitzParser extends Parser {
         }
 
         @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterMap(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitMap(this);
-        }
-
-        @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
             if (visitor instanceof ClausewitzVisitor) return ((ClausewitzVisitor<? extends T>) visitor).visitMap(this);
             else return visitor.visitChildren(this);
@@ -932,16 +821,6 @@ public class ClausewitzParser extends Parser {
         @Override
         public int getRuleIndex() {
             return RULE_array;
-        }
-
-        @Override
-        public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).enterArray(this);
-        }
-
-        @Override
-        public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof ClausewitzListener) ((ClausewitzListener) listener).exitArray(this);
         }
 
         @Override

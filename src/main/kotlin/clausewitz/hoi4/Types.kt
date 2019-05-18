@@ -58,29 +58,29 @@ data class Equipments(
 
 data class Equipment(
     val year: Long? = null,
-    val archetype: String? = null,
-    val priority: Double? = null,
-    val visual_level: Double? = null,
+    val archetype: String = "",
+    val priority: Double = 0.0,
+    val visual_level: Double = 0.0,
 
-    val is_archetype: Boolean? = null,
-    val picture: String? = null,
+    val is_archetype: Boolean = false,
+    val picture: String = "",
     val type: List<String>? = null,
-    val group_by: String? = null,
-    val interface_category: String? = null,
-    val reliability: Double? = null,
+    val group_by: String = "",
+    val interface_category: String = "",
+    val reliability: Double = 0.0,
 
-    val defense: Double? = null,
-    val breakthrough: Double? = null,
-    val hardness: Double? = null,
-    val armor_value: Double? = null,
+    val defense: Double = 0.0,
+    val breakthrough: Double = 0.0,
+    val hardness: Double = 0.0,
+    val armor_value: Double = 0.0,
 
-    val soft_attack: Double? = null,
-    val hard_attack: Double? = null,
-    val ap_attack: Double? = null,
-    val air_attack: Double? = null,
+    val soft_attack: Double = 0.0,
+    val hard_attack: Double = 0.0,
+    val ap_attack: Double = 0.0,
+    val air_attack: Double = 0.0,
 
-    val lend_lease_cost: Double? = null,
+    val lend_lease_cost: Double = 0.0,
 
-    val build_cost_ic: Double? = null,
+    val build_cost_ic: Double = 0.0,
     val resources: Map<String, Long>? = null
 )

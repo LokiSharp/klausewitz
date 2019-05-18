@@ -127,7 +127,7 @@ class ObjectVisitor<T : Any>(private val clazz: KClass<T>) : ClausewitzBaseVisit
     }
 }
 
-private class ListVisitor(private val name: String?, private val type: KType) : ClausewitzBaseVisitor<List<Any>>() {
+private class ListVisitor(private val name: String?, type: KType) : ClausewitzBaseVisitor<List<Any>>() {
     private val visitor = resolveVisitor(name, type) // Find visitor for array generic type
 
     override fun visitArray(ctx: ClausewitzParser.ArrayContext): List<Any> = ctx.value().map { it.accept(visitor) }
@@ -188,3 +188,8 @@ private fun KType.typeArgument(idx: Int) =
     this.arguments[idx].type ?: throw IllegalStateException("No type argument $idx on $this")
 
 private val stellarisDateFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd")
+val String.stripped get() = removeSurrounding("\"")
+
+const val TRUE = "yes"
+const val FALSE = "no"
+val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")

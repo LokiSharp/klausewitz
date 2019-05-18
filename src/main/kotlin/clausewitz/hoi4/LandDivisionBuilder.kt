@@ -31,7 +31,13 @@ fun getEquipments(): MutableMap<String, Equipment> {
                     val baseField = baseFields[index]
                     targetField.isAccessible = true
                     baseField.isAccessible = true
-                    if (targetField.get(equipment.value) == null) {
+                    val checkField = targetField.get(equipment.value)
+                    if (
+                        checkField == "" ||
+                        checkField == 0.0 ||
+                        checkField == null ||
+                        checkField == false
+                    ) {
                         targetField.set(
                             target,
                             baseField.get(base)
