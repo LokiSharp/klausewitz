@@ -1,7 +1,7 @@
 package clausewitz.test
 
-import clausewitz.hoi4.getEquipments
-import clausewitz.hoi4.getLandUnits
+import clausewitz.hoi4.parser.getEquipments
+import clausewitz.hoi4.parser.getLandUnits
 import clausewitz.hoi4.types.Equipment
 import clausewitz.hoi4.types.SubUnit
 import org.junit.Assert
