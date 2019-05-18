@@ -4,6 +4,10 @@ import clausewitz.config.equipmentDir
 import clausewitz.config.equipmentFileList
 import clausewitz.config.unitsDir
 import clausewitz.config.unitsFileList
+import clausewitz.hoi4.types.Equipment
+import clausewitz.hoi4.types.Equipments
+import clausewitz.hoi4.types.SubUnit
+import clausewitz.hoi4.types.SubUnits
 import clausewitz.parser.parseClausewitzFile
 
 
