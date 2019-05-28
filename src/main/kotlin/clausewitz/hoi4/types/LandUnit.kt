@@ -1,16 +1,16 @@
 package clausewitz.hoi4.types
 
 data class LandUnit(
-    val sprite: String,
-    val map_icon_category: String,
+    val sprite: String = "",
+    val map_icon_category: String = "",
     val priority: Double = 0.0,
     val ai_priority: Double = 0.0,
     val active: Boolean = false,
-    val group: String,
-    val type: List<String>,
-    val categories: List<String>,
+    val group: String = "",
+    val type: List<String> = listOf(),
+    val categories: List<String> = listOf(),
     val combat_width: Double = 0.0,
-    val need: Map<String, Long>,
+    val need: Map<String, Long> = mutableMapOf(),
     val manpower: Double = 0.0,
     val max_organisation: Double = 0.0,
     val default_morale: Double = 0.0,
