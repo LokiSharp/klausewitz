@@ -1,10 +1,6 @@
 package clausewitz.hoi4.types
 
-data class SubUnits(
-    val sub_units: Map<String, SubUnit>
-)
-
-data class SubUnit(
+data class LandUnit(
     val sprite: String,
     val map_icon_category: String,
     val priority: Double = 0.0,
@@ -46,8 +42,3 @@ data class SubUnit(
 
 )
 
-data class TerrainModifier(
-    val attack: Double = 0.0,
-    val movement: Double = 0.0,
-    val defense: Double = 0.0
-)

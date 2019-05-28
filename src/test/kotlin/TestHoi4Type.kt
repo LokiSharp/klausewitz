@@ -1,13 +1,13 @@
 package clausewitz.test
 
-import clausewitz.hoi4.types.SubUnit
+import clausewitz.hoi4.types.LandUnit
 import org.junit.Assert
 import org.junit.Test
 
 class TestHoi4Type {
     @Test
     fun testUnitType() {
-        val unit = SubUnit(
+        val unit = LandUnit(
             sprite = "Test",
             map_icon_category = "Test",
             group = "Test",
