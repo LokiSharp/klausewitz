@@ -1,0 +1,30 @@
+package clausewitz.hoi4.types
+
+data class LandUnitStats(
+    val maximum_speed: Double = 0.0,
+    val maximum_strength: Double = 0.0,
+    val max_organisation: Double = 0.0,
+    val default_morale: Double = 0.0,
+    val recon: Double = 0.0,
+    val suppression: Double = 0.0,
+    val weight: Double = 0.0,
+    val supply_consumption: Double = 0.0,
+    val reliability_factor: Double = 0.0,
+    val casualty_trickleback: Double = 0.0,
+    val experience_loss_factor: Double = 0.0,
+    val soft_attack: Double = 0.0,
+    val hard_attack: Double = 0.0,
+    val air_attack: Double = 0.0,
+    val defense: Double = 0.0,
+    val breakthrough: Double = 0.0,
+    val armor_value: Double = 0.0,
+    val ap_attack: Double = 0.0,
+    val entrenchment: Double = 0.0,
+    val equipment_capture_factor: Double = 0.0,
+    val combat_width: Double = 0.0,
+    val manpower: Double = 0.0,
+    val training_time: Double = 0.0,
+    val hardness: Double = 0.0,
+    val need: Map<String, Int>,
+    val priority: Map<String, Int>
+)
