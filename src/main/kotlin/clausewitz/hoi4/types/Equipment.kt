@@ -1,10 +1,5 @@
 package clausewitz.hoi4.types
 
-
-data class Equipments(
-    val equipments: Map<String, Equipment>
-)
-
 data class Equipment(
     val year: Long? = null,
     val archetype: String = "",
@@ -17,6 +12,7 @@ data class Equipment(
     val group_by: String = "",
     val interface_category: String = "",
     val reliability: Double = 0.0,
+    val maximum_speed: Double = 0.0,
 
     val defense: Double = 0.0,
     val breakthrough: Double = 0.0,
