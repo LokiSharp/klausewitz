@@ -7,12 +7,13 @@ import clausewitz.hoi4.parser.LandUnitsParser
 import clausewitz.hoi4.types.Equipment
 import clausewitz.hoi4.types.LandUnit
 import clausewitz.hoi4.types.LandUnitStats
+import clausewitz.hoi4.types.TechnologieModifier
 
 class LandUnitBuilder(
     val landUnits: Map<String, LandUnit> = LandUnitsParser().getLandUnits(),
     val equipments: Map<String, Equipment> = EquipmentsParser().getEquipments(),
     val usedEquipments: Map<String, List<String>> = defaultEquipments,
-    val usedTechnologies: Map<String, Map<String, Map<String, List<Any>>>> = defaultTechnologies
+    val usedTechnologies: Map<String, TechnologieModifier> = defaultTechnologies
 ) {
     fun calculateStats(landUnitType: String): LandUnit {
         val landUnit = landUnits[landUnitType] as LandUnit
