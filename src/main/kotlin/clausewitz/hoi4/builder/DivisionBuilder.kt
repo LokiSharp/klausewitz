@@ -5,105 +5,105 @@ import clausewitz.hoi4.types.DivisionStatus
 import clausewitz.hoi4.types.DivisionTemplate
 
 class DivisionBuilder {
-    private val landUnitBuilder = LandUnitBuilder()
+    private val battalionBuilder = BattalionBuilder()
     fun calculateStats(division_template: DivisionTemplate): Division {
         val division = Division(
             name = division_template.name,
             division_names_group = division_template.division_names_group
         )
 
-        val divisionStatus = DivisionStatus()
+        val divisionStats = DivisionStatus()
 
         for (regiment in division_template.regiments) {
-            val landUnit = landUnitBuilder.calculateStats(regiment.key)
+            val battalion = battalionBuilder.calculateStats(regiment.key)
             for (i in (1..regiment.value)) {
-                divisionStatus.maximum_speed.add(landUnit.maximum_speed)
-                divisionStatus.max_strength.add(landUnit.max_strength)
-                divisionStatus.max_organisation.add(landUnit.max_organisation)
-                divisionStatus.default_morale.add(landUnit.default_morale)
-                divisionStatus.recon.add(landUnit.recon)
-                divisionStatus.suppression.add(landUnit.suppression)
-                divisionStatus.weight.add(landUnit.weight)
-                divisionStatus.supply_consumption.add(landUnit.supply_consumption)
-                divisionStatus.reliability_factor.add(landUnit.reliability_factor)
-                divisionStatus.casualty_trickleback.add(landUnit.casualty_trickleback)
-                divisionStatus.experience_loss_factor.add(landUnit.experience_loss_factor)
-                divisionStatus.soft_attack.add(landUnit.soft_attack)
-                divisionStatus.hard_attack.add(landUnit.hard_attack)
-                divisionStatus.air_attack.add(landUnit.air_attack)
-                divisionStatus.defense.add(landUnit.defense)
-                divisionStatus.breakthrough.add(landUnit.breakthrough)
-                divisionStatus.armor_value.add(landUnit.armor_value)
-                divisionStatus.ap_attack.add(landUnit.ap_attack)
-                divisionStatus.entrenchment.add(landUnit.entrenchment)
-                divisionStatus.equipment_capture_factor.add(landUnit.equipment_capture_factor)
-                divisionStatus.combat_width.add(landUnit.combat_width)
-                divisionStatus.manpower.add(landUnit.manpower)
-                divisionStatus.training_time.add(landUnit.training_time)
-                divisionStatus.hardness.add(landUnit.hardness)
-                for (unitNeed in landUnit.need) {
-                    divisionStatus.need.merge(unitNeed.key, unitNeed.value) { t, u -> t + u }
+                divisionStats.maximum_speed.add(battalion.maximum_speed)
+                divisionStats.max_strength.add(battalion.max_strength)
+                divisionStats.max_organisation.add(battalion.max_organisation)
+                divisionStats.default_morale.add(battalion.default_morale)
+                divisionStats.recon.add(battalion.recon)
+                divisionStats.suppression.add(battalion.suppression)
+                divisionStats.weight.add(battalion.weight)
+                divisionStats.supply_consumption.add(battalion.supply_consumption)
+                divisionStats.reliability_factor.add(battalion.reliability_factor)
+                divisionStats.casualty_trickleback.add(battalion.casualty_trickleback)
+                divisionStats.experience_loss_factor.add(battalion.experience_loss_factor)
+                divisionStats.soft_attack.add(battalion.soft_attack)
+                divisionStats.hard_attack.add(battalion.hard_attack)
+                divisionStats.air_attack.add(battalion.air_attack)
+                divisionStats.defense.add(battalion.defense)
+                divisionStats.breakthrough.add(battalion.breakthrough)
+                divisionStats.armor_value.add(battalion.armor_value)
+                divisionStats.ap_attack.add(battalion.ap_attack)
+                divisionStats.entrenchment.add(battalion.entrenchment)
+                divisionStats.equipment_capture_factor.add(battalion.equipment_capture_factor)
+                divisionStats.combat_width.add(battalion.combat_width)
+                divisionStats.manpower.add(battalion.manpower)
+                divisionStats.training_time.add(battalion.training_time)
+                divisionStats.hardness.add(battalion.hardness)
+                for (unitNeed in battalion.need) {
+                    divisionStats.need.merge(unitNeed.key, unitNeed.value) { t, u -> t + u }
                 }
-                divisionStatus.priority.merge(regiment.key, landUnit.priority) { t, u -> t + u }
+                divisionStats.priority.merge(regiment.key, battalion.priority) { t, u -> t + u }
             }
         }
 
         for (support in division_template.supports) {
-            val landUnit = landUnitBuilder.calculateStats(support)
-            divisionStatus.max_strength.add(landUnit.max_strength)
-            divisionStatus.max_organisation.add(landUnit.max_organisation)
-            divisionStatus.default_morale.add(landUnit.default_morale)
-            divisionStatus.recon.add(landUnit.recon)
-            divisionStatus.suppression.add(landUnit.suppression)
-            divisionStatus.weight.add(landUnit.weight)
-            divisionStatus.supply_consumption.add(landUnit.supply_consumption)
-            divisionStatus.reliability_factor.add(landUnit.reliability_factor)
-            divisionStatus.casualty_trickleback.add(landUnit.casualty_trickleback)
-            divisionStatus.experience_loss_factor.add(landUnit.experience_loss_factor)
-            divisionStatus.soft_attack.add(landUnit.soft_attack)
-            divisionStatus.hard_attack.add(landUnit.hard_attack)
-            divisionStatus.air_attack.add(landUnit.air_attack)
-            divisionStatus.defense.add(landUnit.defense)
-            divisionStatus.breakthrough.add(landUnit.breakthrough)
-            divisionStatus.armor_value.add(landUnit.armor_value)
-            divisionStatus.ap_attack.add(landUnit.ap_attack)
-            divisionStatus.entrenchment.add(landUnit.entrenchment)
-            divisionStatus.equipment_capture_factor.add(landUnit.equipment_capture_factor)
-            divisionStatus.combat_width.add(landUnit.combat_width)
-            divisionStatus.manpower.add(landUnit.manpower)
-            divisionStatus.training_time.add(landUnit.training_time)
-            divisionStatus.hardness.add(landUnit.hardness)
-            for (unitNeed in landUnit.need) {
-                divisionStatus.need.merge(unitNeed.key, unitNeed.value) { t, u -> t + u }
+            val battalion = battalionBuilder.calculateStats(support)
+            divisionStats.max_strength.add(battalion.max_strength)
+            divisionStats.max_organisation.add(battalion.max_organisation)
+            divisionStats.default_morale.add(battalion.default_morale)
+            divisionStats.recon.add(battalion.recon)
+            divisionStats.suppression.add(battalion.suppression)
+            divisionStats.weight.add(battalion.weight)
+            divisionStats.supply_consumption.add(battalion.supply_consumption)
+            divisionStats.reliability_factor.add(battalion.reliability_factor)
+            divisionStats.casualty_trickleback.add(battalion.casualty_trickleback)
+            divisionStats.experience_loss_factor.add(battalion.experience_loss_factor)
+            divisionStats.soft_attack.add(battalion.soft_attack)
+            divisionStats.hard_attack.add(battalion.hard_attack)
+            divisionStats.air_attack.add(battalion.air_attack)
+            divisionStats.defense.add(battalion.defense)
+            divisionStats.breakthrough.add(battalion.breakthrough)
+            divisionStats.armor_value.add(battalion.armor_value)
+            divisionStats.ap_attack.add(battalion.ap_attack)
+            divisionStats.entrenchment.add(battalion.entrenchment)
+            divisionStats.equipment_capture_factor.add(battalion.equipment_capture_factor)
+            divisionStats.combat_width.add(battalion.combat_width)
+            divisionStats.manpower.add(battalion.manpower)
+            divisionStats.training_time.add(battalion.training_time)
+            divisionStats.hardness.add(battalion.hardness)
+            for (unitNeed in battalion.need) {
+                divisionStats.need.merge(unitNeed.key, unitNeed.value) { t, u -> t + u }
             }
-            divisionStatus.priority.merge(support, landUnit.priority) { t, u -> t + u }
+            divisionStats.priority.merge(support, battalion.priority) { t, u -> t + u }
         }
-        division.maximum_speed = divisionStatus.maximum_speed.min()!!
-        division.max_strength = divisionStatus.max_strength.sum()
-        division.max_organisation = divisionStatus.max_organisation.sum()
-        division.default_morale = divisionStatus.default_morale.sum()
-        division.recon = divisionStatus.recon.sum()
-        division.suppression = divisionStatus.suppression.sum()
-        division.weight = divisionStatus.weight.sum()
-        division.supply_consumption = divisionStatus.supply_consumption.sum()
-        division.reliability_factor = divisionStatus.reliability_factor.sum()
-        division.casualty_trickleback = divisionStatus.casualty_trickleback.sum()
-        division.experience_loss_factor = divisionStatus.experience_loss_factor.sum()
-        division.soft_attack = divisionStatus.soft_attack.sum()
-        division.hard_attack = divisionStatus.hard_attack.sum()
-        division.air_attack = divisionStatus.air_attack.sum()
-        division.defense = divisionStatus.defense.sum()
-        division.breakthrough = divisionStatus.breakthrough.sum()
-        division.armor_value = divisionStatus.armor_value.sum()
-        division.ap_attack = divisionStatus.ap_attack.sum()
-        division.entrenchment = divisionStatus.entrenchment.sum()
-        division.equipment_capture_factor = divisionStatus.equipment_capture_factor.sum()
-        division.combat_width = divisionStatus.combat_width.sum()
-        division.manpower = divisionStatus.manpower.sum()
-        division.training_time = divisionStatus.training_time.max()!!
-        division.hardness = divisionStatus.hardness.sum()
-        division.need = divisionStatus.need
-        division.priority = divisionStatus.priority
+        division.maximum_speed = divisionStats.maximum_speed.min()!!
+        division.max_strength = divisionStats.max_strength.sum()
+        division.max_organisation = divisionStats.max_organisation.sum()
+        division.default_morale = divisionStats.default_morale.sum()
+        division.recon = divisionStats.recon.sum()
+        division.suppression = divisionStats.suppression.sum()
+        division.weight = divisionStats.weight.sum()
+        division.supply_consumption = divisionStats.supply_consumption.sum()
+        division.reliability_factor = divisionStats.reliability_factor.sum()
+        division.casualty_trickleback = divisionStats.casualty_trickleback.sum()
+        division.experience_loss_factor = divisionStats.experience_loss_factor.sum()
+        division.soft_attack = divisionStats.soft_attack.sum()
+        division.hard_attack = divisionStats.hard_attack.sum()
+        division.air_attack = divisionStats.air_attack.sum()
+        division.defense = divisionStats.defense.sum()
+        division.breakthrough = divisionStats.breakthrough.sum()
+        division.armor_value = divisionStats.armor_value.sum()
+        division.ap_attack = divisionStats.ap_attack.sum()
+        division.entrenchment = divisionStats.entrenchment.sum()
+        division.equipment_capture_factor = divisionStats.equipment_capture_factor.sum()
+        division.combat_width = divisionStats.combat_width.sum()
+        division.manpower = divisionStats.manpower.sum()
+        division.training_time = divisionStats.training_time.max()!!
+        division.hardness = divisionStats.hardness.sum()
+        division.need = divisionStats.need
+        division.priority = divisionStats.priority
         return division
     }
 }

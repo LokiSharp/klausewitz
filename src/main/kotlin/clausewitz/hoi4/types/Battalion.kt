@@ -1,6 +1,6 @@
 package clausewitz.hoi4.types
 
-data class LandUnit(
+data class Battalion(
     var sprite: String = "",
     var map_icon_category: String = "",
     var priority: Double = 0.0,
