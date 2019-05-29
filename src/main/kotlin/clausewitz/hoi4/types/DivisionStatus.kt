@@ -27,7 +27,7 @@ data class DivisionStatus(
     val manpower: Double = 0.0,
     val training_time: Double = 0.0,
     val hardness: Double = 0.0,
-    val need: Map<String, Int>,
-    val priority: Map<String, Int>,
-    val template: Map<String, Map<String, Int>>
+    val need: MutableMap<String, Int> = mutableMapOf(),
+    val priority: MutableMap<String, Int> = mutableMapOf(),
+    val template: MutableMap<String, MutableMap<String, Int>> = mutableMapOf()
 )

@@ -12,6 +12,7 @@ data class Equipment(
     val group_by: String = "",
     val interface_category: String = "",
     val reliability: Double = 0.0,
+    val maximum_speed: Double = 0.0,
 
     val defense: Double = 0.0,
     val breakthrough: Double = 0.0,
