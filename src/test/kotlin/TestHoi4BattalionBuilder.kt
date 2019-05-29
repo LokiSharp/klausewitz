@@ -5,10 +5,29 @@ import org.junit.Assert
 import org.junit.Test
 
 class TestHoi4BattalionBuilder {
+    private val battalionBuilder = BattalionBuilder()
+
     @Test
-    fun testBattalionBuilder() {
+    fun testBattalionBuilderWithInfantry() {
+        val battalionType = "infantry"
+        Assert.assertNotNull(battalionBuilder.usedEquipments)
+        Assert.assertNotNull(battalionBuilder.usedTechnologies)
+        val result = battalionBuilder.calculateStats(battalionType)
+        Assert.assertNotNull(result)
+    }
+
+    @Test
+    fun testBattalionBuilderWithMotorized() {
         val battalionType = "motorized"
-        val battalionBuilder = BattalionBuilder()
+        Assert.assertNotNull(battalionBuilder.usedEquipments)
+        Assert.assertNotNull(battalionBuilder.usedTechnologies)
+        val result = battalionBuilder.calculateStats(battalionType)
+        Assert.assertNotNull(result)
+    }
+
+    @Test
+    fun testBattalionBuilderWithModern_armor() {
+        val battalionType = "modern_armor"
         Assert.assertNotNull(battalionBuilder.usedEquipments)
         Assert.assertNotNull(battalionBuilder.usedTechnologies)
         val result = battalionBuilder.calculateStats(battalionType)
