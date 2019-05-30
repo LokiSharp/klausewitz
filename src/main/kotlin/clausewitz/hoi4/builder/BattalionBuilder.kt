@@ -30,15 +30,27 @@ class BattalionBuilder(
             battalionEquipmentsStats.ap_attack.add(equipment.ap_attack)
             battalionEquipmentsStats.hardness.add(equipment.hardness)
         }
+        var technologieModifier = TechnologieModifier()
+        if (usedTechnologies.contains(battalionType)) {
+            technologieModifier = usedTechnologies[battalionType] as TechnologieModifier
+        }
         battalion.maximum_speed = (1 + battalion.maximum_speed) * battalionEquipmentsStats.maximum_speed.max()!!
-        battalion.soft_attack = (1 + battalion.soft_attack) * battalionEquipmentsStats.soft_attack.sum()
-        battalion.hard_attack = (1 + battalion.hard_attack) * battalionEquipmentsStats.hard_attack.sum()
-        battalion.air_attack = (1 + battalion.air_attack) * battalionEquipmentsStats.air_attack.sum()
-        battalion.defense = (1 + battalion.defense) * battalionEquipmentsStats.defense.sum()
-        battalion.breakthrough = (1 + battalion.breakthrough) * battalionEquipmentsStats.breakthrough.sum()
-        battalion.armor_value = (1 + battalion.armor_value) * battalionEquipmentsStats.armor_value.sum()
-        battalion.ap_attack = (1 + battalion.ap_attack) * battalionEquipmentsStats.ap_attack.sum()
+        battalion.soft_attack =
+            (1 + battalion.soft_attack + technologieModifier.soft_attack.sum()) * battalionEquipmentsStats.soft_attack.sum()
+        battalion.hard_attack =
+            (1 + battalion.hard_attack + technologieModifier.hard_attack.sum()) * battalionEquipmentsStats.hard_attack.sum()
+        battalion.air_attack =
+            (1 + battalion.air_attack + technologieModifier.air_attack.sum()) * battalionEquipmentsStats.air_attack.sum()
+        battalion.defense =
+            (1 + battalion.defense + technologieModifier.defense.sum()) * battalionEquipmentsStats.defense.sum()
+        battalion.breakthrough =
+            (1 + battalion.breakthrough + technologieModifier.breakthrough.sum()) * battalionEquipmentsStats.breakthrough.sum()
+        battalion.armor_value =
+            (1 + battalion.armor_value) * battalionEquipmentsStats.armor_value.sum() + technologieModifier.armor_value.sum()
+        battalion.ap_attack =
+            (1 + battalion.ap_attack + technologieModifier.ap_attack.sum()) * battalionEquipmentsStats.ap_attack.sum()
         battalion.hardness = (1 + battalion.hardness) * battalionEquipmentsStats.hardness.sum()
+        battalion.max_organisation = battalion.max_organisation + technologieModifier.max_organisation.sum()
 
         return battalion
     }
