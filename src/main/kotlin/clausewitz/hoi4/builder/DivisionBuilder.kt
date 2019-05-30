@@ -76,12 +76,12 @@ class DivisionBuilder {
             for (unitNeed in battalion.need) {
                 divisionStats.need.merge(unitNeed.key, unitNeed.value) { t, u -> t + u }
             }
-            divisionStats.priority.merge(support, battalion.priority) { t, u -> t + u }
+            divisionStats.priority[support] = battalion.priority
         }
         division.maximum_speed = divisionStats.maximum_speed.min()!!
         division.max_strength = divisionStats.max_strength.sum()
-        division.max_organisation = divisionStats.max_organisation.sum()
-        division.default_morale = divisionStats.default_morale.sum()
+        division.max_organisation = divisionStats.max_organisation.average()
+        division.default_morale = divisionStats.default_morale.average()
         division.recon = divisionStats.recon.sum()
         division.suppression = divisionStats.suppression.sum()
         division.weight = divisionStats.weight.sum()
@@ -94,8 +94,8 @@ class DivisionBuilder {
         division.air_attack = divisionStats.air_attack.sum()
         division.defense = divisionStats.defense.sum()
         division.breakthrough = divisionStats.breakthrough.sum()
-        division.armor_value = divisionStats.armor_value.sum()
-        division.ap_attack = divisionStats.ap_attack.sum()
+        division.armor_value = divisionStats.armor_value.max()!! * 0.3 + divisionStats.armor_value.average() * 0.7
+        division.ap_attack = divisionStats.ap_attack.max()!! * 0.4 + divisionStats.ap_attack.average() * 0.6
         division.entrenchment = divisionStats.entrenchment.sum()
         division.equipment_capture_factor = divisionStats.equipment_capture_factor.sum()
         division.combat_width = divisionStats.combat_width.sum()

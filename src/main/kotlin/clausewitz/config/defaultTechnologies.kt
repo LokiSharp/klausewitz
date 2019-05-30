@@ -11,7 +11,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.25 * 2  // 步兵反坦克武器
         ),
         ap_attack = listOf(
-            +0.25 * 2  // 步兵反坦克武器
+            +1.0 * 2  // 步兵反坦克武器
         ),
         defense = listOf(
             +0.05 * 4  // 支援武器
