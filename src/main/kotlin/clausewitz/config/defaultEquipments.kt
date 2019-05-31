@@ -37,11 +37,11 @@ val defaultEquipments: Map<String, List<String>> = mapOf(
     "medium_sp_artillery_brigade" to listOf("medium_tank_artillery_equipment_3"),
     "heavy_sp_artillery_brigade" to listOf("heavy_tank_artillery_equipment_3"),
     "super_heavy_sp_artillery_brigade" to listOf("super_heavy_tank_artillery_equipment_1"),
-    "modern_sp_artillery_brigade" to listOf("modern_tank_destroyer_equipment_1"),
+    "modern_sp_artillery_brigade" to listOf("modern_tank_artillery_equipment_1"),
 
     "light_sp_anti_air_brigade" to listOf("light_tank_aa_equipment_3"),
     "medium_sp_anti_air_brigade" to listOf("medium_tank_aa_equipment_3"),
     "heavy_sp_anti_air_brigade" to listOf("heavy_tank_aa_equipment_3"),
     "super_sp_anti_air_brigade" to listOf("super_heavy_tank_aa_equipment_1"),
-    "modern_sp_anti_air_brigade" to listOf("modern_tank_destroyer_equipment_1")
+    "modern_sp_anti_air_brigade" to listOf("modern_tank_aa_equipment_1")
 )

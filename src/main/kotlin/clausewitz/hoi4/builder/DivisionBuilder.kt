@@ -101,7 +101,7 @@ class DivisionBuilder {
         division.combat_width = divisionStats.combat_width.sum()
         division.manpower = divisionStats.manpower.sum()
         division.training_time = divisionStats.training_time.max()!!
-        division.hardness = divisionStats.hardness.sum()
+        division.hardness = divisionStats.hardness.average()
         division.need = divisionStats.need
         division.priority = divisionStats.priority
         return division
