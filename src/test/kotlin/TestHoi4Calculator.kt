@@ -20,6 +20,20 @@ class TestHoi4Calculator {
     }
 
     @Test
+    fun testGetDamage() {
+        val diceSize = 4
+        val chanceToAvoidHit = 90
+        val damageModifier = 0.05
+        val n = 1
+        for (i in 1..10000000) {
+            val result = landWarfareCalculator.getDamage(diceSize, chanceToAvoidHit, damageModifier, n)
+            Assert.assertTrue(result >= (1 * (100.0 - chanceToAvoidHit) / 100.0 * damageModifier) * n)
+            Assert.assertTrue(result <= (diceSize * (100.0 - chanceToAvoidHit) / 100.0 * damageModifier) * n)
+        }
+
+    }
+
+    @Test
     fun testCalcDamage() {
         val divisionA = Division(
             "Template A",
