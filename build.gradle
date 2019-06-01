@@ -39,7 +39,14 @@ jacocoTestReport {
 
     afterEvaluate {
         classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: '**/antlr/**')
+            fileTree(dir: it,
+                    excludes: [
+                            '**/clausewitz/antlr/**',
+                            '**/clausewitz/parser/**',
+                            '**/clausewitz/hoi4/types/**'
+                            
+                    ]
+            )
         })
     }
 }
