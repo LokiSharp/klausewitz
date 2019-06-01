@@ -6,7 +6,7 @@ plugins {
     id "maven-publish"
 }
 
-group 'moe.slk'
+group 'org.slk'
 version '1.0.0'
 
 sourceCompatibility = 1.8
