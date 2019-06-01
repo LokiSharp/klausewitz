@@ -7,7 +7,6 @@ import clausewitz.antlr.ClausewitzParser.AssignmentContext
 import clausewitz.antlr.ClausewitzVisitor
 import com.google.common.base.CaseFormat
 import org.atteo.evo.inflector.English
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentMap
@@ -37,7 +36,6 @@ private fun resolveVisitor(name: String?, type: KType): ClausewitzVisitor<*> {
         Long::class -> IntegerVisitor // TODO: support Int with overflow if too big?
         Double::class -> RealVisitor
         Boolean::class -> BooleanVisitor
-        LocalDate::class -> DateVisitor
 
         // collections
         List::class -> ListVisitor(name, type.typeArgument(0))
@@ -173,14 +171,6 @@ private object BooleanVisitor : ClausewitzBaseVisitor<Boolean>() {
         FALSE -> false
         else -> throw IllegalArgumentException("Expected boolean but got ${ctx.text}")
     }
-}
-
-private object DateVisitor : ClausewitzBaseVisitor<LocalDate>() {
-    override fun visitDate(ctx: ClausewitzParser.DateContext): LocalDate = LocalDate.parse(ctx.text, dateFormatter)
-    override fun visitString(ctx: ClausewitzParser.StringContext): LocalDate = LocalDate.parse(
-        ctx.text.stripped,
-        stellarisDateFormatter // FIXME: Stellaris-specific dependency
-    )
 }
 
 private fun KParameter.typeArgument(idx: Int) = type.typeArgument(idx)
