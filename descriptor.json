@@ -2,13 +2,13 @@
   "package": {
     "name": "clausewitz",
     "repo": "maven",
-    "subject": "clausewitz",
+    "subject": "lokisharp",
     "desc": "Open Source Toolset for Clausewitz Engine",
     "website_url": "https://github.com/LokiSharp/Clausewitz",
     "issue_tracker_url": "https://github.com/LokiSharp/Clausewitz/issues",
     "vcs_url": "https://github.com/LokiSharp/Clausewitz.git",
     "licenses": [
-      "AGPL-2.0"
+      "AGPL-V3"
     ],
     "labels": [
       "kotlin",

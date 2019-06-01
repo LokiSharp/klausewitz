@@ -10,6 +10,7 @@ script:
 after_success:
   - ./gradlew jacocoTestReport coveralls
 before_deploy:
+  - ./gradlew build
   - ./gradlew generatePomFileForMavenPublication
 deploy:
   provider: bintray
