@@ -1,8 +1,8 @@
 package clausewitz.test
 
-import clausewitz.hoi4.builder.BattalionBuilder
 import org.junit.Assert
 import org.junit.Test
+import org.slk.clausewitz.hoi4.builder.BattalionBuilder
 
 class TestHoi4BattalionBuilder {
     private val battalionBuilder = BattalionBuilder()
