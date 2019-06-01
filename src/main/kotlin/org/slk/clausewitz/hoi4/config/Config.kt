@@ -1,9 +1,8 @@
-package org.slk.clausewitz.config
+package org.slk.clausewitz.hoi4.config
 
-val rootDir: String = System.getProperty("user.dir") + "/data/hoi4"
-val commonDir = "$rootDir/common"
-val unitsDir = "$commonDir/units"
-val equipmentDir = "$unitsDir/equipment"
+val defaultDataDir: String = System.getProperty("user.dir") + "/data/hoi4"
+const val unitsDir = "common/units"
+const val equipmentDir = "common/units/equipment"
 
 val unitsFileList = listOf(
     "anti_tank.txt",

@@ -1,4 +1,4 @@
-package org.slk.clausewitz.config
+package org.slk.clausewitz.hoi4.config
 
 val defaultEquipments: Map<String, List<String>> = mapOf(
     "infantry" to listOf("infantry_equipment_3"),
