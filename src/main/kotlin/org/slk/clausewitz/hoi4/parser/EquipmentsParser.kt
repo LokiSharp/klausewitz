@@ -1,16 +1,19 @@
 package org.slk.clausewitz.hoi4.parser
 
-import org.slk.clausewitz.config.equipmentDir
-import org.slk.clausewitz.config.equipmentFileList
+import org.slk.clausewitz.hoi4.config.defaultDataDir
+import org.slk.clausewitz.hoi4.config.equipmentDir
+import org.slk.clausewitz.hoi4.config.equipmentFileList
 import org.slk.clausewitz.hoi4.types.Equipment
 import org.slk.clausewitz.hoi4.types.Equipments
 import org.slk.clausewitz.parser.parseClausewitzFile
 
-class EquipmentsParser {
+class EquipmentsParser(
+    private val dataDir: String = defaultDataDir
+) {
     fun getEquipments(): MutableMap<String, Equipment> {
         val equipments: MutableMap<String, Equipment> = mutableMapOf()
         for (filename in equipmentFileList) {
-            val parse = parseClausewitzFile("$equipmentDir/$filename") as Equipments
+            val parse = parseClausewitzFile("$dataDir/$equipmentDir/$filename") as Equipments
             var base = Equipment()
             for (equipment in parse.equipments) {
                 if (equipment.key.last().isDigit()) {

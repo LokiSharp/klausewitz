@@ -1,11 +1,14 @@
 package org.slk.clausewitz.hoi4.builder
 
+import org.slk.clausewitz.hoi4.config.defaultDataDir
 import org.slk.clausewitz.hoi4.types.Division
 import org.slk.clausewitz.hoi4.types.DivisionStatus
 import org.slk.clausewitz.hoi4.types.DivisionTemplate
 
-class DivisionBuilder {
-    private val battalionBuilder = BattalionBuilder()
+class DivisionBuilder(
+    dataDir: String = defaultDataDir
+) {
+    private val battalionBuilder = BattalionBuilder(dataDir = dataDir)
     fun calculateStats(division_template: DivisionTemplate): Division {
         val division = Division(
             name = division_template.name,

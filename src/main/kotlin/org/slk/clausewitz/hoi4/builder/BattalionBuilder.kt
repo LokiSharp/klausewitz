@@ -1,7 +1,8 @@
 package org.slk.clausewitz.hoi4.builder
 
-import org.slk.clausewitz.config.defaultEquipments
-import org.slk.clausewitz.config.defaultTechnologies
+import org.slk.clausewitz.hoi4.config.defaultDataDir
+import org.slk.clausewitz.hoi4.config.defaultEquipments
+import org.slk.clausewitz.hoi4.config.defaultTechnologies
 import org.slk.clausewitz.hoi4.parser.BattalionParser
 import org.slk.clausewitz.hoi4.parser.EquipmentsParser
 import org.slk.clausewitz.hoi4.types.Battalion
@@ -10,8 +11,9 @@ import org.slk.clausewitz.hoi4.types.Equipment
 import org.slk.clausewitz.hoi4.types.TechnologieModifier
 
 class BattalionBuilder(
-    val battalions: Map<String, Battalion> = BattalionParser().getBattalions(),
-    val equipments: Map<String, Equipment> = EquipmentsParser().getEquipments(),
+    private val dataDir: String = defaultDataDir,
+    private val battalions: Map<String, Battalion> = BattalionParser(dataDir = dataDir).getBattalions(),
+    private val equipments: Map<String, Equipment> = EquipmentsParser(dataDir = dataDir).getEquipments(),
     val usedEquipments: Map<String, List<String>> = defaultEquipments,
     val usedTechnologies: Map<String, TechnologieModifier> = defaultTechnologies
 ) {

@@ -19,14 +19,14 @@
     "public_stats": false
   },
   "version": {
-    "name": "1.0.0",
+    "name": "1.0.1",
     "released": "2019-06-01",
     "gpgSign": false
   },
   "files": [
     {
       "includePattern": "build/libs/(.*)",
-      "uploadPattern": "org/slk/clausewitz/1.0.0/$1"
+      "uploadPattern": "org/slk/clausewitz/1.0.1/$1"
     }
   ],
   "publish": true

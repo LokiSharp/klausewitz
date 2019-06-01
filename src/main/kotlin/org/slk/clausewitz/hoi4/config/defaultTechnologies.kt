@@ -1,4 +1,4 @@
-package org.slk.clausewitz.config
+package org.slk.clausewitz.hoi4.config
 
 import org.slk.clausewitz.hoi4.types.TechnologieModifier
 
