@@ -9,3 +9,11 @@ script:
   - ./gradlew test build
 after_success:
   - ./gradlew jacocoTestReport coveralls
+before_deploy:
+  - ./gradlew generatePomFileForMavenPublication
+deploy:
+  provider: bintray
+  file: "descriptor.json"
+  user: $BINTRAY_API_USER
+  key: $BINTRAY_API_KEY
+  dry-run: false

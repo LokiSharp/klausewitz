@@ -1,0 +1,30 @@
+package org.slk.clausewitz.hoi4.types
+
+data class DivisionStatus(
+    val maximum_speed: MutableList<Double> = mutableListOf(),
+    val max_strength: MutableList<Double> = mutableListOf(),
+    val max_organisation: MutableList<Double> = mutableListOf(),
+    val default_morale: MutableList<Double> = mutableListOf(),
+    val recon: MutableList<Double> = mutableListOf(),
+    val suppression: MutableList<Double> = mutableListOf(),
+    val weight: MutableList<Double> = mutableListOf(),
+    val supply_consumption: MutableList<Double> = mutableListOf(),
+    val reliability_factor: MutableList<Double> = mutableListOf(),
+    val casualty_trickleback: MutableList<Double> = mutableListOf(),
+    val experience_loss_factor: MutableList<Double> = mutableListOf(),
+    val soft_attack: MutableList<Double> = mutableListOf(),
+    val hard_attack: MutableList<Double> = mutableListOf(),
+    val air_attack: MutableList<Double> = mutableListOf(),
+    val defense: MutableList<Double> = mutableListOf(),
+    val breakthrough: MutableList<Double> = mutableListOf(),
+    val armor_value: MutableList<Double> = mutableListOf(),
+    val ap_attack: MutableList<Double> = mutableListOf(),
+    val entrenchment: MutableList<Double> = mutableListOf(),
+    val equipment_capture_factor: MutableList<Double> = mutableListOf(),
+    val combat_width: MutableList<Double> = mutableListOf(),
+    val manpower: MutableList<Double> = mutableListOf(),
+    val training_time: MutableList<Double> = mutableListOf(),
+    val hardness: MutableList<Double> = mutableListOf(),
+    val need: MutableMap<String, Long> = mutableMapOf(),
+    val priority: MutableMap<String, Double> = mutableMapOf()
+)
