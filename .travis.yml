@@ -15,11 +15,12 @@ before_deploy:
 deploy:
   - provider: releases
     skip_cleanup: true
+    file_glob: true
     file: "build/libs/*"
     api_key: $GITHUB_API_KEY
     on:
       tags: true
-      jdk: oraclejdk8
+      jdk: openjdk8
   - provider: bintray
     skip_cleanup: true
     file: "build/descriptor.json"
