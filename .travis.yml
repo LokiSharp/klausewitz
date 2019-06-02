@@ -10,12 +10,21 @@ script:
 after_success:
   - ./gradlew jacocoTestReport coveralls
 before_deploy:
-  - ./gradlew build
-  - ./gradlew generatePomFileForMavenPublication
+  - ./gradlew generateDescriptorJson
+  - ./gradlew generatePom
 deploy:
-  provider: bintray
-  file: "descriptor.json"
-  user: $BINTRAY_API_USER
-  key: $BINTRAY_API_KEY
-  dry-run: false
-  skip_cleanup: true
+  - provider: releases
+    skip_cleanup: true
+    file: "build/libs/*"
+    api_key: $GITHUB_API_KEY
+    on:
+      tags: true
+      jdk: oraclejdk8
+  - provider: bintray
+    skip_cleanup: true
+    file: "build/descriptor.json"
+    user: $BINTRAY_API_USER
+    key: $BINTRAY_API_KEY
+    on:
+      tags: true
+      jdk: oraclejdk8

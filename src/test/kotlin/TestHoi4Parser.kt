@@ -1,11 +1,11 @@
 package clausewitz.test
 
+import moe.slk.clausewitz.hoi4.parser.BattalionParser
+import moe.slk.clausewitz.hoi4.parser.EquipmentsParser
+import moe.slk.clausewitz.hoi4.types.Battalion
+import moe.slk.clausewitz.hoi4.types.Equipment
 import org.junit.Assert
 import org.junit.Test
-import org.slk.clausewitz.hoi4.parser.BattalionParser
-import org.slk.clausewitz.hoi4.parser.EquipmentsParser
-import org.slk.clausewitz.hoi4.types.Battalion
-import org.slk.clausewitz.hoi4.types.Equipment
 
 class TestHoi4Parser {
     @Test

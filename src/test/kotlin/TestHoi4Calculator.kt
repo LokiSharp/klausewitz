@@ -1,9 +1,9 @@
 package clausewitz.test
 
+import moe.slk.clausewitz.hoi4.calculator.LandWarfareCalculator
+import moe.slk.clausewitz.hoi4.types.Division
 import org.junit.Assert
 import org.junit.Test
-import org.slk.clausewitz.hoi4.calculator.LandWarfareCalculator
-import org.slk.clausewitz.hoi4.types.Division
 
 class TestHoi4Calculator {
     private val landWarfareCalculator = LandWarfareCalculator()
