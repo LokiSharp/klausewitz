@@ -27,4 +27,4 @@ deploy:
     key: $BINTRAY_API_KEY
     on:
       tags: true
-      jdk: oraclejdk8
+      jdk: openjdk8
