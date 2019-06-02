@@ -1,9 +1,9 @@
 package clausewitz.test
 
+import moe.slk.clausewitz.hoi4.builder.DivisionBuilder
+import moe.slk.clausewitz.hoi4.types.DivisionTemplate
 import org.junit.Assert
 import org.junit.Test
-import org.slk.clausewitz.hoi4.builder.DivisionBuilder
-import org.slk.clausewitz.hoi4.types.DivisionTemplate
 
 class TestHoi4DivisionBuilder {
     private val divisionBuilder = DivisionBuilder()
