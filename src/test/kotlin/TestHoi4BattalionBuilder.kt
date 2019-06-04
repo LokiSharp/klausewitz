@@ -141,6 +141,7 @@ class TestHoi4BattalionBuilder {
             Assert.assertEquals(experience_loss_factor, 0.0, 0.00001)
             Assert.assertEquals(equipment_capture_factor, 0.0, 0.00001)
             Assert.assertEquals(entrenchment, 0.0, 0.00001)
+
             Assert.assertEquals(soft_attack, 40.0, 0.00001)
             Assert.assertEquals(hard_attack, 32.0, 0.00001)
             Assert.assertEquals(air_attack, 0.0, 0.00001)

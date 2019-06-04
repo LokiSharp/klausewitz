@@ -15,6 +15,7 @@ data class Battalion(
     var training_time: Double = 0.0,
     var can_be_parachuted: Boolean = false,
     var hardness: Double = 0.0,
+    var fuel_consumption: Double = 0.0,
 
     var maximum_speed: Double = 0.0,
     var max_strength: Double = 0.0,
@@ -29,6 +30,7 @@ data class Battalion(
     var experience_loss_factor: Double = 0.0,
     var equipment_capture_factor: Double = 0.0,
     var entrenchment: Double = 0.0,
+
     var soft_attack: Double = 0.0,
     var hard_attack: Double = 0.0,
     var air_attack: Double = 0.0,
@@ -54,6 +56,7 @@ data class Battalion(
 ) {
     fun calculateStats(battalionEquipmentsStats: BattalionStats, technologieModifier: TechnologieModifier): Battalion {
         with(this) {
+            fuel_consumption = battalionEquipmentsStats.fuel_consumption.sum()
             maximum_speed =
                 (1 + technologieModifier.maximum_speed.sum()) * battalionEquipmentsStats.maximum_speed.max()!!
             soft_attack =
