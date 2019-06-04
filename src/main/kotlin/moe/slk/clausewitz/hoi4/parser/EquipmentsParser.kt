@@ -38,7 +38,7 @@ class EquipmentsParser(
                             )
                         }
                     }
-                    equipments.put(equipment.key, target)
+                    equipments[equipment.key] = target
                 } else {
                     base = equipment.value
                 }

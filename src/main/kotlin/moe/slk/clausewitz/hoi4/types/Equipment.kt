@@ -27,5 +27,6 @@ data class Equipment(
     val lend_lease_cost: Double = 0.0,
 
     val build_cost_ic: Double = 0.0,
-    val resources: Map<String, Long>? = null
+    val resources: Map<String, Long>? = null,
+    val fuel_consumption: Double = 0.0
 )

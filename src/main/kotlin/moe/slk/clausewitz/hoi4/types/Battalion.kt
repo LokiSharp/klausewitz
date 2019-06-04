@@ -15,6 +15,7 @@ data class Battalion(
     var training_time: Double = 0.0,
     var can_be_parachuted: Boolean = false,
     var hardness: Double = 0.0,
+    var fuel_consumption: Double = 0.0,
 
     var maximum_speed: Double = 0.0,
     var max_strength: Double = 0.0,
@@ -29,6 +30,7 @@ data class Battalion(
     var experience_loss_factor: Double = 0.0,
     var equipment_capture_factor: Double = 0.0,
     var entrenchment: Double = 0.0,
+
     var soft_attack: Double = 0.0,
     var hard_attack: Double = 0.0,
     var air_attack: Double = 0.0,
@@ -51,5 +53,33 @@ data class Battalion(
     var river: TerrainModifier = TerrainModifier(),
     var amphibious: TerrainModifier = TerrainModifier()
 
-)
+) {
+    fun calculateStats(
+        battalionEquipmentsStats: BattalionStats,
+        technologiesModifier: TechnologiesModifier
+    ): Battalion {
+        with(this) {
+            fuel_consumption = battalionEquipmentsStats.fuel_consumption.sum()
+            maximum_speed =
+                (1 + technologiesModifier.maximum_speed.sum()) * battalionEquipmentsStats.maximum_speed.max()!!
+            soft_attack =
+                (1 + soft_attack + technologiesModifier.soft_attack.sum()) * battalionEquipmentsStats.soft_attack.sum()
+            hard_attack =
+                (1 + hard_attack + technologiesModifier.hard_attack.sum()) * battalionEquipmentsStats.hard_attack.sum()
+            air_attack =
+                (1 + air_attack + technologiesModifier.air_attack.sum()) * battalionEquipmentsStats.air_attack.sum()
+            defense =
+                (1 + defense + technologiesModifier.defense.sum()) * battalionEquipmentsStats.defense.sum()
+            breakthrough =
+                (1 + breakthrough + technologiesModifier.breakthrough.sum()) * battalionEquipmentsStats.breakthrough.sum()
+            armor_value =
+                (1 + armor_value) * battalionEquipmentsStats.armor_value.sum() + technologiesModifier.armor_value.sum()
+            ap_attack =
+                (1 + ap_attack + technologiesModifier.ap_attack.sum()) * battalionEquipmentsStats.ap_attack.sum()
+            hardness = (1 + hardness) * battalionEquipmentsStats.hardness.sum()
+            max_organisation += technologiesModifier.max_organisation.sum()
+        }
+        return this
+    }
+}
 
