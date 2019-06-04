@@ -27,4 +27,39 @@ data class DivisionStatus(
     val hardness: MutableList<Double> = mutableListOf(),
     val need: MutableMap<String, Long> = mutableMapOf(),
     val priority: MutableMap<String, Double> = mutableMapOf()
-)
+) {
+    operator fun plus(battalion: Battalion): DivisionStatus {
+        with(this) {
+            if (battalion.group != "support") {
+                maximum_speed.add(battalion.maximum_speed)
+            }
+            max_strength.add(battalion.max_strength)
+            max_organisation.add(battalion.max_organisation)
+            default_morale.add(battalion.default_morale)
+            recon.add(battalion.recon)
+            suppression.add(battalion.suppression)
+            weight.add(battalion.weight)
+            supply_consumption.add(battalion.supply_consumption)
+            reliability_factor.add(battalion.reliability_factor)
+            casualty_trickleback.add(battalion.casualty_trickleback)
+            experience_loss_factor.add(battalion.experience_loss_factor)
+            soft_attack.add(battalion.soft_attack)
+            hard_attack.add(battalion.hard_attack)
+            air_attack.add(battalion.air_attack)
+            defense.add(battalion.defense)
+            breakthrough.add(battalion.breakthrough)
+            armor_value.add(battalion.armor_value)
+            ap_attack.add(battalion.ap_attack)
+            entrenchment.add(battalion.entrenchment)
+            equipment_capture_factor.add(battalion.equipment_capture_factor)
+            combat_width.add(battalion.combat_width)
+            manpower.add(battalion.manpower)
+            training_time.add(battalion.training_time)
+            hardness.add(battalion.hardness)
+            for (unitNeed in battalion.need) {
+                need.merge(unitNeed.key, unitNeed.value) { t, u -> t + u }
+            }
+        }
+        return this
+    }
+}

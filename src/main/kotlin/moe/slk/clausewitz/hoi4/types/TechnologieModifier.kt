@@ -8,5 +8,6 @@ data class TechnologieModifier(
     val armor_value: List<Double> = listOf(0.0),
     val defense: List<Double> = listOf(0.0),
     val breakthrough: List<Double> = listOf(0.0),
-    val max_organisation: List<Double> = listOf(0.0)
+    val max_organisation: List<Double> = listOf(0.0),
+    val maximum_speed: List<Double> = listOf(0.0)
 )
