@@ -5,19 +5,19 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 
 class LandWarfareCalculator {
-    val LAND_COMBAT_ORG_DICE_SIZE: Int = 4
-    val LAND_COMBAT_STR_DICE_SIZE: Int = 2
+    private val LAND_COMBAT_ORG_DICE_SIZE: Int = 4
+    private val LAND_COMBAT_STR_DICE_SIZE: Int = 2
 
-    val LAND_COMBAT_ORG_ARMOR_ON_SOFT_DICE_SIZE: Int = 6
-    val LAND_COMBAT_STR_ARMOR_ON_SOFT_DICE_SIZE: Int = 2
+    private val LAND_COMBAT_ORG_ARMOR_ON_SOFT_DICE_SIZE: Int = 6
+    private val LAND_COMBAT_STR_ARMOR_ON_SOFT_DICE_SIZE: Int = 2
 
-    val LAND_COMBAT_STR_DAMAGE_MODIFIER: Double = 0.05
-    val LAND_COMBAT_ORG_DAMAGE_MODIFIER: Double = 0.05
+    private val LAND_COMBAT_STR_DAMAGE_MODIFIER: Double = 0.05
+    private val LAND_COMBAT_ORG_DAMAGE_MODIFIER: Double = 0.05
 
-    val LAND_COMBAT_STR_ARMOR_DEFLECTION_FACTOR: Double = 0.5
-    val LAND_COMBAT_ORG_ARMOR_DEFLECTION_FACTOR: Double = 0.5
-    val BASE_CHANCE_TO_AVOID_HIT: Int = 90
-    val CHANCE_TO_AVOID_HIT_AT_NO_DEF: Int = 60
+    private val LAND_COMBAT_STR_ARMOR_DEFLECTION_FACTOR: Double = 0.5
+    private val LAND_COMBAT_ORG_ARMOR_DEFLECTION_FACTOR: Double = 0.5
+    private val BASE_CHANCE_TO_AVOID_HIT: Int = 90
+    private val CHANCE_TO_AVOID_HIT_AT_NO_DEF: Int = 60
 
     fun getDamageOfAvoidHit(diceSize: Int, chanceToAvoidHit: Int, damageModifier: Double): Double {
         return Random.nextInt(1, diceSize) * (100.0 - chanceToAvoidHit) / 100.0 * damageModifier
@@ -67,8 +67,8 @@ class LandWarfareCalculator {
         }
 
         if (divisionB.armor_value >= divisionA.ap_attack) {
-            org_damage_modifier = org_damage_modifier * LAND_COMBAT_ORG_ARMOR_DEFLECTION_FACTOR
-            str_damage_modifier = str_damage_modifier * LAND_COMBAT_STR_ARMOR_DEFLECTION_FACTOR
+            org_damage_modifier *= LAND_COMBAT_ORG_ARMOR_DEFLECTION_FACTOR
+            str_damage_modifier *= LAND_COMBAT_STR_ARMOR_DEFLECTION_FACTOR
         }
         val soft_hits = (atkSa * (1 - divisionB.hardness)).roundToInt()
         val hard_hits = (atkHa * divisionB.hardness).roundToInt()

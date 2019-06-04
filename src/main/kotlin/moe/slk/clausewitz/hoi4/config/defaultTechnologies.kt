@@ -1,9 +1,9 @@
 package moe.slk.clausewitz.hoi4.config
 
-import moe.slk.clausewitz.hoi4.types.TechnologieModifier
+import moe.slk.clausewitz.hoi4.types.TechnologiesModifier
 
-val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
-    "infantry" to TechnologieModifier(
+val defaultTechnologies: Map<String, TechnologiesModifier> = mapOf(
+    "infantry" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 3  // 改良步兵装备
         ),
@@ -20,7 +20,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.05 * 4  // 支援武器
         )
     ),
-    "marine" to TechnologieModifier(
+    "marine" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 3,  // 改良步兵装备
             +0.05,  // 海军陆战队
@@ -44,7 +44,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             5.0 * 2  // 特种部队
         )
     ),
-    "mountaineers" to TechnologieModifier(
+    "mountaineers" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 3,  // 改良步兵装备
             +0.05,  // 山地步兵
@@ -68,7 +68,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             5.0 * 2  // 特种部队
         )
     ),
-    "paratrooper" to TechnologieModifier(
+    "paratrooper" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 3,  // 改良步兵装备
             +0.05,  // 伞兵
@@ -92,7 +92,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             5.0 * 2  // 特种部队
         )
     ),
-    "motorized" to TechnologieModifier(
+    "motorized" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 2,  // 改良步兵装备
             +0.1  // 改良步兵装备
@@ -113,7 +113,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.05 * 4  // 支援武器
         )
     ),
-    "mechanized" to TechnologieModifier(
+    "mechanized" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 2,  // 改良步兵装备
             +0.1,  // 改良步兵装备
@@ -133,7 +133,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.05 * 4  // 支援武器
         )
     ),
-    "cavalry" to TechnologieModifier(
+    "cavalry" to TechnologiesModifier(
         soft_attack = listOf(
             +0.05 * 2,  // 改良步兵装备
             +0.1  // 改良步兵装备
@@ -151,17 +151,17 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.05 * 2  // 支援武器
         )
     ),
-    "artillery_brigade" to TechnologieModifier(
+    "artillery_brigade" to TechnologiesModifier(
         soft_attack = listOf(
             +0.1 * 4  // 改良火炮
         )
     ),
-    "anti_air_brigade" to TechnologieModifier(
+    "anti_air_brigade" to TechnologiesModifier(
         air_attack = listOf(
             +0.1 * 3  // 改良防空炮
         )
     ),
-    "anti_tank_brigade" to TechnologieModifier(
+    "anti_tank_brigade" to TechnologiesModifier(
         hard_attack = listOf(
             +0.1 * 3  // 改良反坦克炮
         ),
@@ -170,28 +170,28 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.1 * 2  // 改良反坦克炮
         )
     ),
-    "rocket_artillery_brigade" to TechnologieModifier(
+    "rocket_artillery_brigade" to TechnologiesModifier(
         soft_attack = listOf(
             +0.15 * 2  // 火箭炮升级
         )
     ),
-    "motorized_rocket_brigade" to TechnologieModifier(
+    "motorized_rocket_brigade" to TechnologiesModifier(
         soft_attack = listOf(
             +0.15 * 2,  // 火箭炮升级
             +0.3  // 火箭炮升级
         )
     ),
-    "artillery" to TechnologieModifier(
+    "artillery" to TechnologiesModifier(
         soft_attack = listOf(
             +0.1 * 4  // 改良火炮
         )
     ),
-    "anti_air" to TechnologieModifier(
+    "anti_air" to TechnologiesModifier(
         air_attack = listOf(
             +0.1 * 3  // 改良防空炮
         )
     ),
-    "anti_tank" to TechnologieModifier(
+    "anti_tank" to TechnologiesModifier(
         hard_attack = listOf(
             +0.1 * 3  // 改良反坦克炮
         ),
@@ -200,7 +200,7 @@ val defaultTechnologies: Map<String, TechnologieModifier> = mapOf(
             +0.1 * 2  // 改良反坦克炮
         )
     ),
-    "rocket_artillery" to TechnologieModifier(
+    "rocket_artillery" to TechnologiesModifier(
         soft_attack = listOf(
             +0.15 * 2  // 火箭炮升级
         )

@@ -1,6 +1,6 @@
 package moe.slk.clausewitz.hoi4.types
 
-data class TechnologieModifier(
+data class TechnologiesModifier(
     val soft_attack: List<Double> = listOf(0.0),
     val hard_attack: List<Double> = listOf(0.0),
     val ap_attack: List<Double> = listOf(0.0),
