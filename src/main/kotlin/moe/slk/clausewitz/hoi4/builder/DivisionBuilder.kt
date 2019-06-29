@@ -1,14 +1,29 @@
 package moe.slk.clausewitz.hoi4.builder
 
+import moe.slk.clausewitz.hoi4.config.defaultBattalionEquipments
 import moe.slk.clausewitz.hoi4.config.defaultDataDir
-import moe.slk.clausewitz.hoi4.types.Division
-import moe.slk.clausewitz.hoi4.types.DivisionStatus
-import moe.slk.clausewitz.hoi4.types.DivisionTemplate
+import moe.slk.clausewitz.hoi4.config.defaultEquipments
+import moe.slk.clausewitz.hoi4.config.defaultTechnologies
+import moe.slk.clausewitz.hoi4.parser.BattalionParser
+import moe.slk.clausewitz.hoi4.parser.EquipmentsParser
+import moe.slk.clausewitz.hoi4.types.*
 
 class DivisionBuilder(
-    dataDir: String = defaultDataDir
+    dataDir: String = defaultDataDir,
+    battalions: Map<String, Battalion> = BattalionParser(dataDir = dataDir).getBattalions(),
+    private val equipments: Map<String, Equipment> = EquipmentsParser(dataDir = dataDir).getEquipments(),
+    private val usedEquipments: Map<String, String> = defaultEquipments,
+    usedBattalionEquipments: Map<String, List<String>> = defaultBattalionEquipments,
+    usedTechnologies: Map<String, TechnologiesModifier> = defaultTechnologies
 ) {
-    private val battalionBuilder = BattalionBuilder(dataDir = dataDir)
+    private val battalionBuilder = BattalionBuilder(
+        dataDir,
+        battalions,
+        equipments,
+        usedEquipments,
+        usedBattalionEquipments,
+        usedTechnologies
+    )
 
     fun calculateStats(division_template: DivisionTemplate): Division {
         val division = Division(
@@ -32,6 +47,14 @@ class DivisionBuilder(
             divisionStats.priority[support] = battalion.priority
         }
 
-        return division.calculateStats(divisionStats)
+        val divisionStat = division.calculateStats(divisionStats)
+        divisionStat.template = division_template
+        for (e in divisionStats.need) {
+            val equipmentName = usedEquipments[e.key] as String
+            val equipment = equipments[equipmentName] as Equipment
+            divisionStat.build_cost += equipment.build_cost_ic * e.value
+        }
+
+        return divisionStat
     }
 }

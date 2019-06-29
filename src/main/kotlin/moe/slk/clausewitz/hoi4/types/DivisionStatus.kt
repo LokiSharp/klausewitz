@@ -39,10 +39,12 @@ data class DivisionStatus(
             }
             manpower.add(battalion.manpower)
             training_time.add(battalion.training_time)
-            hardness.add(battalion.hardness)
+            if ("support" !in battalion.type) {
+                hardness.add(battalion.hardness)
+            }
             fuel_consumption.add(battalion.fuel_consumption)
 
-            if (battalion.group != "support") {
+            if ("support" !in battalion.type) {
                 maximum_speed.add(battalion.maximum_speed)
             }
             max_strength.add(battalion.max_strength)
