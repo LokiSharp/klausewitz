@@ -1,5 +1,6 @@
 package moe.slk.clausewitz.hoi4.builder
 
+import moe.slk.clausewitz.hoi4.config.defaultBattalionEquipments
 import moe.slk.clausewitz.hoi4.config.defaultDataDir
 import moe.slk.clausewitz.hoi4.config.defaultEquipments
 import moe.slk.clausewitz.hoi4.config.defaultTechnologies
@@ -14,13 +15,15 @@ class BattalionBuilder(
     private val dataDir: String = defaultDataDir,
     private val battalions: Map<String, Battalion> = BattalionParser(dataDir = dataDir).getBattalions(),
     private val equipments: Map<String, Equipment> = EquipmentsParser(dataDir = dataDir).getEquipments(),
-    private val usedEquipments: Map<String, List<String>> = defaultEquipments,
+    private val usedEquipments: Map<String, String> = defaultEquipments,
+    private val usedBattalionEquipments: Map<String, List<String>> = defaultBattalionEquipments,
     private val usedTechnologies: Map<String, TechnologiesModifier> = defaultTechnologies
 ) {
     fun calculateStats(battalionType: String): Battalion {
         val battalion = battalions[battalionType] as Battalion
         var battalionEquipmentsStats = BattalionStats()
-        for (equipmentName in usedEquipments[battalionType] as List) {
+        for (equipmentType in usedBattalionEquipments[battalionType] as List) {
+            val equipmentName = usedEquipments[equipmentType] as String
             val equipment = equipments[equipmentName] as Equipment
             battalionEquipmentsStats += equipment
         }

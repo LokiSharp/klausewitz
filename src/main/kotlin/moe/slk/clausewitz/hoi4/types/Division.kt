@@ -33,7 +33,8 @@ data class Division(
     var armor_value: Double = 0.0,
     var ap_attack: Double = 0.0,
 
-    var template: MutableMap<String, MutableMap<String, Int>> = mutableMapOf()
+    var template: DivisionTemplate = DivisionTemplate(),
+    var build_cost: Double = 0.0
 ) {
     fun calculateStats(divisionStats: DivisionStatus): Division {
         with(this) {
