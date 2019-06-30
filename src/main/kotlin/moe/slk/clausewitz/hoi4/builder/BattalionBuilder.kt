@@ -20,7 +20,7 @@ class BattalionBuilder(
     private val usedTechnologies: Map<String, TechnologiesModifier> = defaultTechnologies
 ) {
     fun calculateStats(battalionType: String): Battalion {
-        val battalion = battalions[battalionType] as Battalion
+        val battalion = (battalions[battalionType] as Battalion).copy()
         var battalionEquipmentsStats = BattalionStats()
         for (equipmentType in usedBattalionEquipments[battalionType] as List) {
             val equipmentName = usedEquipments[equipmentType] as String
