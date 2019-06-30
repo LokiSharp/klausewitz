@@ -8,7 +8,7 @@ import kotlin.random.Random
 class LandWarfareCalculator {
 
     fun getDamageOfAvoidHit(diceSize: Int, chanceToAvoidHit: Int, damageModifier: Double): Double {
-        return Random.nextInt(1, diceSize) * (100.0 - chanceToAvoidHit) / 100.0 * damageModifier
+        return Random.nextInt(1, diceSize + 1) * (100.0 - chanceToAvoidHit) / 100.0 * damageModifier
     }
 
     fun getDamage(diceSize: Int, chanceToAvoidHit: Int, damageModifier: Double, n: Int): Double {
