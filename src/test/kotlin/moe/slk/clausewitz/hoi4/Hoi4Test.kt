@@ -1,17 +1,17 @@
-package clausewitz.test
+package moe.slk.clausewitz.hoi4
 
 import moe.slk.clausewitz.hoi4.builder.DivisionBuilder
 import moe.slk.clausewitz.hoi4.calculator.LandWarfareCalculator
 import moe.slk.clausewitz.hoi4.types.DivisionTemplate
-import org.junit.Assert
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 
-class TestHoi4 {
+class Hoi4Test {
     private val divisionBuilder = DivisionBuilder()
     private val landWarfareCalculator = LandWarfareCalculator()
 
     @Test
-    fun testHoi4() {
+    fun hoi4() {
         val divisionTemplateA = DivisionTemplate(
             "TemplateA",
             "Test Template",
@@ -54,7 +54,7 @@ class TestHoi4 {
         val divisionC = divisionBuilder.calculateStats(divisionTemplateC)
         val resultAB = landWarfareCalculator.calcDamage(divisionA, divisionB, "Defense")
         val resultAC = landWarfareCalculator.calcDamage(divisionA, divisionC, "Defense")
-        Assert.assertNotNull(resultAB)
-        Assert.assertNotNull(resultAC)
+        assertNotNull(resultAB)
+        assertNotNull(resultAC)
     }
 }
