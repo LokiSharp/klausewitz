@@ -19,7 +19,7 @@ val projectScmUrl: String by project
 
 plugins {
     java
-    kotlin("jvm") version "1.3.31"
+    kotlin("jvm") version "1.3.40"
     jacoco
     maven
     `maven-publish`
@@ -158,8 +158,8 @@ tasks.create("generateDescriptorJson") {
                 "subject" to "lokisharp",
                 "desc" to projectDescription,
                 "website_url" to projectUrl,
-                "issue_tracker_url" to "${projectUrl}/issues",
-                "vcs_url" to "${projectUrl}.git",
+                "issue_tracker_url" to "$projectUrl/issues",
+                "vcs_url" to "$projectUrl.git",
                 "licenses" to listOf("AGPL-V3"),
                 "labels" to listOf("clausewitz", "kotlin"),
                 "public_download_numbers" to false,
