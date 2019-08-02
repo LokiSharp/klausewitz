@@ -11,4 +11,10 @@ class EquipmentsParserTest {
         val equipments: MutableMap<String, Equipment> = EquipmentsParser().getEquipments()
         assertNotNull(equipments)
     }
+
+    @Test
+    fun getEquipmentsToJSON() {
+        val equipmentsJSON = EquipmentsParser().getEquipmentsToJSON()
+        assertNotNull(equipmentsJSON)
+    }
 }

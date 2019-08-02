@@ -42,6 +42,7 @@ dependencies {
     testCompile("junit", "junit", "4.12")
     implementation("org.antlr:antlr4-runtime:4.7.2")
     implementation("org.atteo:evo-inflector:1.2.2")
+    implementation("com.google.code.gson:gson:2.8.5")
 }
 
 configure<JavaPluginConvention> {

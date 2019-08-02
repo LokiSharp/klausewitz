@@ -1,5 +1,6 @@
 package moe.slk.clausewitz.hoi4.parser
 
+import com.google.gson.GsonBuilder
 import moe.slk.clausewitz.hoi4.config.defaultDataDir
 import moe.slk.clausewitz.hoi4.config.equipmentDir
 import moe.slk.clausewitz.hoi4.config.equipmentFileList
@@ -46,6 +47,10 @@ class EquipmentsParser(
         }
 
         return equipments
+    }
+
+    fun getEquipmentsToJSON(): String {
+        return GsonBuilder().create().toJson(this.getEquipments())
     }
 }
 

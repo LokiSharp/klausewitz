@@ -4,13 +4,13 @@ import moe.slk.clausewitz.hoi4.config.defaultBattalionEquipments
 import moe.slk.clausewitz.hoi4.config.defaultDataDir
 import moe.slk.clausewitz.hoi4.config.defaultEquipments
 import moe.slk.clausewitz.hoi4.config.defaultTechnologies
-import moe.slk.clausewitz.hoi4.parser.BattalionParser
+import moe.slk.clausewitz.hoi4.parser.BattalionsParser
 import moe.slk.clausewitz.hoi4.parser.EquipmentsParser
 import moe.slk.clausewitz.hoi4.types.*
 
 class DivisionBuilder(
     dataDir: String = defaultDataDir,
-    battalions: Map<String, Battalion> = BattalionParser(dataDir = dataDir).getBattalions(),
+    battalions: Map<String, Battalion> = BattalionsParser(dataDir = dataDir).getBattalions(),
     private val equipments: Map<String, Equipment> = EquipmentsParser(dataDir = dataDir).getEquipments(),
     private val usedEquipments: Map<String, String> = defaultEquipments,
     usedBattalionEquipments: Map<String, List<String>> = defaultBattalionEquipments,
