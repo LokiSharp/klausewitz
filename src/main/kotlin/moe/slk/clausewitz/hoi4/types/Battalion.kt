@@ -39,7 +39,7 @@ data class Battalion(
     var armor_value: Double = 0.0,
     var ap_attack: Double = 0.0,
 
-    var essential: String = "",
+    var essential: List<String> = mutableListOf(),
     var transport: String = "",
 
     var forest: TerrainModifier = TerrainModifier(),

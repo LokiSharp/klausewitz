@@ -52,7 +52,7 @@ class BattalionBuilderTest {
                 assertEquals(armor_value, 0.0, 0.00001)
                 assertEquals(ap_attack, 30.0, 0.00001)
 
-                assertEquals(essential, "")
+                assertEquals(essential, listOf<String>())
                 assertEquals(transport, "")
             }
         }
@@ -101,7 +101,7 @@ class BattalionBuilderTest {
                 assertEquals(armor_value, 20.0, 0.00001)
                 assertEquals(ap_attack, 93.0, 0.00001)
 
-                assertEquals(essential, "")
+                assertEquals(essential, listOf("infantry_equipment", "mechanized_equipment"))
                 assertEquals(transport, "mechanized_equipment")
             }
         }
@@ -154,7 +154,7 @@ class BattalionBuilderTest {
                 assertEquals(armor_value, 130.0, 0.00001)
                 assertEquals(ap_attack, 131.0, 0.00001)
 
-                assertEquals(essential, "")
+                assertEquals(essential, listOf<String>())
                 assertEquals(transport, "")
             }
         }
